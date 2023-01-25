@@ -39,7 +39,7 @@ const Navbar = () => {
 
             <div className="flex fixed flex-col top-[35%] left-0">
                 <ul>
-                    <li className="w-[160px] h-[80px] flex justify-between items-center">
+                    <li className="w-[160px] h-[60px] flex justify-between items-center">
                         <a href="/">
                             Linkedin <FaLinkedin size={30} />
                         </a>
