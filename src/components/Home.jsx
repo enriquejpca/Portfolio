@@ -1,10 +1,19 @@
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-scroll";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
+import { particlesOptions } from "./particlesConfig";
 
 const Home = () => {
+    const particlesInit = (engine) => {
+        loadFull(engine);
+    };
     return (
         <div name="home" className="bg-[#0a192f] w-full h-screen ">
-            <div className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full">
+            <div>
+                <Particles init={particlesInit} options={particlesOptions} />
+            </div>
+            <div className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center  h-full ">
                 <p className="text-gray-300 text-base">Hi, my name is</p>
                 <h1 className="text-4xl sm:text-7xl py-4 font-bold text-[#ccd6f6]">
                     Enrique Jesus Palomino Caballero

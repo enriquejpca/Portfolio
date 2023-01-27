@@ -8,7 +8,7 @@ const Navbar = () => {
     const handleClick = () => setNav(!nav);
 
     return (
-        <div className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300 text-lg border-y">
+        <div className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300 text-lg border-y ">
             <GiTripleScratches className="h-8 w-8" />
 
             <ul className="hidden md:flex">
