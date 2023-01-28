@@ -1,4 +1,24 @@
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+
 const About = () => {
+    const boxVariant = {
+        visible: { opacity: 1, scale: 1, transition: { duration: 0.75 } },
+        hidden: { opacity: 0, scale: 0 },
+    };
+
+    const control = useAnimation();
+    const [ref, inView] = useInView();
+
+    useEffect(() => {
+        if (inView) {
+            control.start("visible");
+        } else {
+            control.start("hidden");
+        }
+    }, [control, inView]);
+
     return (
         <div
             name="about"
@@ -13,22 +33,33 @@ const About = () => {
                     </div>
                     <div></div>
                 </div>
-                <div className="max-w-[1000px] w-full  grid sm:grid-cols-2 gap-8 px-4">
-                    <div className="sm:text-right text-4xl font-bold">
+                <div className="max-w-[1000px] w-full  grid sm:grid-cols-2 gap-8 px-4 ">
+                    <motion.div
+                        ref={ref}
+                        variants={boxVariant}
+                        initial="hidden"
+                        animate={control}
+                        className="box1 sm:text-right text-4xl font-bold border-2 rounded-2xl shadow-[#040c16] shadow-2xl p-4 "
+                    >
                         <p>
                             Hi. I´m enrique, nice to meet you. Take a look
                             around!
                         </p>
-                    </div>
-                    <div>
-                        <p className="text-lg">
+                    </motion.div>
+                    <motion.div
+                        ref={ref}
+                        variants={boxVariant}
+                        initial="hidden"
+                        animate={control}
+                    >
+                        <p className="text-lg border-2 rounded-2xl shadow-[#040c16] shadow-2xl p-4">
                             I am passionate about buiing excellent software that
                             improves the lives around me. I specialize in
                             creating software for clients ranging from
                             individuals and small-businesses all the way to
                             large enterprise corporations.
                         </p>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </div>
